@@ -1,0 +1,155 @@
+{%extends 'base.html'%}
+{% block title %}
+Explore
+{% endblock %}
+{%block css%}
+<!--<link rel="stylesheet" href="static/css/manage.css">-->
+<link rel="stylesheet" type="text/css" href="static/css/resources.css">
+{% endblock %}
+{% block content %}
+<div id='map'></div>
+
+    <div class='wrapper'>
+
+        <div class='sidebar'>
+            <h3 class='search'>Search for a pharmacy</h3>
+            <p class='intro'>Enter your address to find a pharmacy offering vaccines.</p>
+            <div class='searchbox'>
+                <input type='text'>
+                <span class='right iconfont'>&#xe996;</span>
+            </div>
+            <div class='filter'>
+                <h3>Filter Locations</h3>
+                <div class='locationItem hours'>
+                    <p>Oprerating hours</p>
+                    <ul class='hoursli'>
+                        <li>  <span class='check'></span> Open Now</li>
+                        <li>  <span class='check'></span> Open weekdays after 6 p.m.</li>
+                        <li>  <span class='check'></span>  Open on weekends</li>
+                    </ul>
+                </div>
+                <div class='locationItem vaccine'>
+                    <p>Vaccine type</p>
+                    <ul class='typeli'>
+                        <li><span class='check'></span>AstraZeneca(second dose only)</li>
+                        <li><span class='check'></span>Morderna (age 18 or older)</li>
+                        <li><span class='check'></span>Pfizer(age 12 or order)</li>
+                    </ul>
+                </div>
+                <!-- <div class='locationItem second'>
+                    <p>Vaccine type</p>
+                    <ul class='typeli'>
+                        <li></span>AstraZeneca(second dose only)</li>
+                        <li></span>Morderna (age 18 or older)</li>
+                        <li></span>Pfizer(age 12 or order)</li>
+                    </ul>
+                </div>
+                <div class='locationItem vaccine'>
+                    <p>Vaccine type</p>
+                    <ul class='typeli'>
+                        <li></span>AstraZeneca(second dose only)</li>
+                        <li></span>Morderna (age 18 or older)</li>
+                        <li></span>Pfizer(age 12 or order)</li>
+                    </ul>
+                </div> -->
+            </div>
+            
+        </div>
+        <div class='content'>
+
+            
+            <div class='table' id='table'>
+                <div class='hospital head'>
+                    <div class='tableitem'>Hospital</div>
+                    <div class='tableitem'>Address</div>
+                    <div class='tableitem'>Vaccines Available</div>
+                </div>
+                {%for hospital in hospitals%}
+              
+                <div class='hospital hosunique' data-id = {{hospital.id}}>
+                <div class='tableitem'>{{hospital.name}}</div>
+                <div class='tableitem'>{{hospital.address}}</div>
+                <div class='tableitem'>
+                {%for type in hospital.types%}
+                <span class='typeitem'>{{type.name}}</span>
+                {% endfor %}
+                </div>
+                </div>
+   
+             
+
+                {% endfor %}
+
+
+            </div>
+            <!-- <div class='gr'>
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                
+            </div> -->
+        </div>
+
+
+    </div>
+    
+    
+{% endblock %}
+
+{%block js%}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6R1wf4P5viLnCs8jNuxRIXPGr9OQfHAQ"
+    async defer></script>
+<script src="static/js/resources.js"></script>
+<script>
+    ohos = document.querySelectorAll('.hosunique')
+    for (let el of ohos){
+        console.log(el)
+        el.onclick = function(){
+            location.href=`/hospital?id=${this.dataset.id}`
+        }
+    }
+    ocks = document.querySelectorAll('span.check')
+    let ckvalue = [-1,-1,-1,-1,-1,-1]
+    const quer = location.search;
+    if (quer){
+        let arr = quer.split('?')[1].split('&')
+        for (let i=0;i<arr.length;i++){
+            if (arr[i].split('=')[1]<=3 && arr[i].split('=')[1]>=1){
+                ind = Number(arr[i].split('=')[1])
+                ocks[ind+2].classList.toggle('active')
+                ckvalue[ind+2] = -ckvalue[ind+2]
+            }
+        }
+    }
+    
+    
+    for (let i=0;i<ocks.length;i++){
+        let ck = ocks[i]
+        ck.addEventListener('click',(e)=>{
+            e.target.classList.toggle('active')
+            ckvalue[i] = -ckvalue[i]
+            if(i>=3){
+                if(ckvalue[i] == 1){
+                    location.href=`/nearby?vacid=${i-2}`
+                }
+                else{
+                    location.href='/nearby'
+                }
+           
+
+            }
+        })
+        
+    }
+    
+
+    
+
+</script>
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}title {% endblock %}
+    </title>
+    <script src="static/js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/base.css') }}">
+    {%block css%}
+
+    {% endblock %}
+</head>
+<body>
+<div class="topbar">
+    <div class="barItem barHead">Health Management</div>
+    <a href = '/explore'><div class="barItem">Explore</div></a>
+    <a href = '/nearby'><div class="barItem">Resources</div></a>
+    <div class="barItem manage hide">Manage</div>
+    <div class="rightside">
+
+        {%if user%}
+        
+    <span class='icons'>
+        <span class='iconfont home'>&#xe65e;</span>
+        <span class='iconfont msg'>&#xe6eb;</span>
+    </span>    
+        
+         <span class="user iconfont" id="usermanage" >
+            &#xe60a; </span>
+
+            <div class='slider hide' id='slider'>
+                <span class="welcome">Log in as {{user.username}}</span>
+                <ul class='sliderli'>
+                <li class='slideItem set'><span class='iconfont'>&#xe611;</span>Settings</li>
+                <li class='slideItem logout'>
+                    <a href='/logout'>
+                    <span class='iconfont'>&#xe619;</span>Log out</a>
+                </li>
+                <li class='slideItem manage'><span class='iconfont'>&#xe6e7;</span>Manage</li>
+                </ul>
+            </div>
+            {%else%}
+            <div class='none' id='usermanage'></div>
+          <a href='/login'><span class="log" id="login">
+            Log In </span></a> 
+            {%endif %}
+
+    </div>
+</div>
+<div class="outwrapper">
+{%block content%}
+{% endblock %}
+</div>
+</body>
+{%block js%}
+
+{% endblock %}
+<script>
+
+    ouser = document.getElementById('usermanage')
+    oslider = document.getElementById('slider')
+    // console.log(ouser,'sdsds')
+ 
+    ouser.addEventListener('click',()=>{
+        // console.log(ouser.classList)
+        ouser.classList.toggle('active')
+        oslider.classList.toggle('hide')
+    })
+    </script>
+</html>

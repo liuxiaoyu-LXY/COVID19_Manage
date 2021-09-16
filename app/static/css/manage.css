@@ -1,0 +1,108 @@
+.topbar .barItem.manage.hide{
+    display: block;
+}
+.hide{
+    display: none;
+}
+.userInfo{
+    width: 100%;
+    padding: 0;
+    list-style: none;
+}
+.userItem{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    padding-right: 100px;
+    box-sizing: border-box;
+}
+.userItem.userhead{
+    height: 50px;
+    background-color: rgb(242, 242, 242);
+    line-height: 50px;
+   
+    
+
+}
+.userItem .content{
+    flex:1;
+    text-align: center;
+    
+}
+.edit,.delete{
+    text-align: center;
+    flex: 1;
+    margin: 0 3px;
+    display: inline-block;
+    padding: 0 5px;
+    color:rgb(40, 196, 193);
+    border:1px solid rgb(40, 196, 193);
+    border-radius:5px;
+    height: 31px;
+    line-height: 31px;
+    
+}
+.control{
+    /* display: inline-block; */
+    width: 100px;
+    position: absolute;
+    right: 0px;
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+.updateForm{
+    position: absolute;
+    width: 400px;
+    height: 310px;
+    left: 50%;
+    top: 50%;
+    transform:translate(-50%,-50%);
+    background-color: rgb(121, 216, 227);
+    box-sizing: border-box;
+    padding: 55px 0 0 0;
+    border-radius: 15.0px;
+    border:2px solid rgb(121, 216, 227);
+    overflow:hidden;
+}
+.formitem{
+    width: 100%;
+    height: 50px;
+    border-bottom:1px solid rgba(0,0,0,0.2);
+    background-color: white;
+    line-height: 50px;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+span.title{
+    display: inline-block;
+    width: 116px;
+    font-size:14px;
+
+}
+.content{
+    height:90%;
+    width: 60%;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border:none;
+    font-size:14px;
+    color:#555;
+
+}
+.submit{
+    height: 80%;
+    width: 60%;
+    color:white;
+    background-color: rgb(62, 186, 199);
+    outline:none;
+    border:none;
+    font-size:15px;
+    position:relative;
+    left:70px;
+    border-radius: 10px;
+
+}

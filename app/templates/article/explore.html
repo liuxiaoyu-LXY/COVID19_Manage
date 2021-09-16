@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+{% block title %}
+Explore
+{% endblock %}
+{% block css%}
+<link rel='stylesheet' href='static/css/explore.css'>
+{% endblock %}
+{% block content%}
+<div class='outwrap'>
+{% for blog in articles%}
+<div class="outer">
+    <div class="userinfo">
+        <!-- <img class='icon' src={{iconlist[blog.id]}}> -->
+        <img class='icon' src="{{blog.icon}}">
+        <p class="author">{{blog.author}}</p>
+        <p class='time'>Post on {{blog.pdatetime}}</p>
+    </div>
+    <div class= 'wrapper' onclick = "handleclick('{{blog.id}}')">
+    <img class='lazy' src='static/image/loading.jpg' data-src={{imglist[blog.id][0]}}>
+</div>
+    <div class='infobox'>
+        <span class='iconfont'>&#xe631;</span><span class='collect'>{{blog.lovenum}}</span>
+        <span class='iconfont'>&#xe61b;</span><span class='response'>{{blog.commentlength}}</span>
+        <h3>{{blog.title}}</h3>
+        <span class='type'>#{{blog.type}}</span>
+        <div class='collectin'>Collect</div>
+    </div>
+
+</div>
+{% endfor %}
+</div>
+{% if user %}
+
+<div class='myinfo'>
+    <img class="myicon" src="{{ user.icon }}">
+<!--    <img class='myicon' src='static/image/default.jpg'>-->
+    <div class='username'>{{user.username}}</div>
+    <div class='myphoto'><span class='iconfont'>&#xe65e;</span>My Photos</div>
+    <div class='mycollect'><span class='iconfont'>&#xe631;</span>My Collections</div>
+</div>
+{% endif %}
+<div class='tags'>
+<div class='head'>Hot tags</div>
+{% for tag in tags%}
+<div class='tagItem'>{{tag.typename}}<span class='num'>{{tag.articles|length}}</span></div>
+{% endfor %}
+</div>
+
+{% endblock %}
+{%block js%}
+<script src="static/js/explore.js"></script>
+<script>
+    var handleclick = function(id){
+        location.href = `/details?pid=${id}`
+    }
+
+</script>
+{% endblock %}

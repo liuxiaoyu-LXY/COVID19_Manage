@@ -1,0 +1,132 @@
+html,body{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+@font-face {
+    font-family: 'iconfont';  /* Project id 2805099 */
+    src: url('//at.alicdn.com/t/font_2805099_p4jbnz2c43m.woff2?t=1631584935462') format('woff2'),
+         url('//at.alicdn.com/t/font_2805099_p4jbnz2c43m.woff?t=1631584935462') format('woff'),
+         url('//at.alicdn.com/t/font_2805099_p4jbnz2c43m.ttf?t=1631584935462') format('truetype');
+  }
+  .iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+.topbar{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(67, 67, 67);
+    /* background-color: rgba(222, 222, 222, 0.625); */
+    display: flex;
+    font-size:17px;
+    color:white;
+}
+.none{
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+.topbar .barItem{
+    margin-right: 15px;
+    line-height: 50px;
+    height: 50px;
+    padding: 0 10px;
+}
+.barHead{
+    font-weight: 600;
+    color:#1ee2e7;
+}
+.barItem.active{
+    color:#1ee2e7;
+}
+.manage.hide{
+    display: none;
+}
+.outwrapper{
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+    padding:0 150px;
+}
+.rightside{
+    position: absolute;
+    right: 30px;
+    line-height: 50px;
+    height: 50px;
+    
+    /* background-color: red; */
+
+}
+
+.icons .iconfont{
+    font-size:20px;
+    margin-right: 19px;
+    cursor: pointer;
+
+}
+.iconfont.msg{
+    font-size:25px;
+}
+.iconfont.home{
+    position:relative;
+    top:-2px;
+}
+.iconfont.user{
+    font-size:22px;
+    
+    cursor: pointer;
+}
+.iconfont.active{
+    color:#1ee2e7;
+}
+.topbar .slider{
+    cursor:pointer;
+    width: 150px;
+    border-radius: 5px;
+    background-color: rgb(67, 67, 67);
+    /* border:1px solid rgba(0,0,0,0.3); */
+    position: absolute;
+    top:45.0px;
+    right:-30px;
+    padding: 0;
+}
+.slider.hide{
+    display: none;
+}
+.topbar .slider .welcome{
+    display: inline-block;
+    height: 30px;
+    padding: 0 5px;
+    margin: 0;
+    line-height: 30px;
+    font-size:14px;
+    color:#1ee2e7;
+    text-align: center;
+}
+.topbar .slider ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+   
+    margin: 0;
+}
+.topbar .slider ul li{
+    height: 35px;
+    line-height: 35px;
+    font-size:14px;
+    padding: 0 5px;
+    margin: 0;
+    /* border-top:1px solid rgba(205, 205, 205, 0.747) */
+}
+.slideItem .iconfont{
+    margin-right: 5px;
+}

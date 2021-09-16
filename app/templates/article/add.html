@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% block title %}
+Publish
+{% endblock %}
+{% block css%}
+<link rel="stylesheet" href='static/css/upload.css'>
+{% endblock%}
+{% block content%}
+
+<div class='userinfo'>
+    <img id='icon' class='icon' src='{{user.icon}}'>
+    <div class='username'>
+        {{user.username}}
+    </div>
+    <p class='home'><span class='iconfont'>&#xe65e;</span>My Photos</p>
+    <p class='collections'><span class='iconfont'>&#xe631;</span>My Collections</p>
+</div>
+<div class='form' >
+<!--<form action="{{url_for('article.publish')}}" method="POST">-->
+    <form>
+    <input type="text" class="title" name="title" placeholder="Please input your title~">
+    <textarea name='content' cols="50" rows="10" placeholder="Add content here">
+
+    </textarea> 
+    
+
+        {% for type in types%}
+       <label class='outerchoose'
+       for="{{type.typename}}">#{{type.typename}}</label> <input type='radio' class='typechoose' id = "{{type.typename}}" name='type' value={{type.id}}>
+        {% endfor %}
+
+        <input type="file" id="file_input" /> <!--用input标签并选择type=file，记得带上multiple，不然就只能单选图片了-->
+     
+    <!-- <input type="submit" value="submit" id="submit2"> -->
+</form>
+
+ 
+<div class="container">
+    <label>Choose image files here:</label>
+    <button id="select">Choose</button>
+    <button id="add">Add</button>
+    <div><button id="submit">Submit</button></div>
+</div>
+
+</div>
+<div id='outerside'></div>
+{% endblock %}
+{% block js%}
+<script src='static/js/upload.js'></script>
+{% endblock %}

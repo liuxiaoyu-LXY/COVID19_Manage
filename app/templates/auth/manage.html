@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+{% block title %}
+Manage
+{% endblock %}
+{%block css%}
+<link rel="stylesheet" href="static/css/manage.css">
+
+{% endblock %}
+{% block content %}
+
+<h2>User Information</h2>
+<p>{{users | length}} users in all.</p>
+{% if users%}
+<ul class="userInfo">
+    <li class="userItem userhead">
+        <span class="content">用户名</span>
+        <span class="content">联系电话</span>
+        <span class="content">邮箱地址</span>
+        <span class="content">注册时间</span>
+<!--        <span class="control edit">修改</span>-->
+<!--        <span class="control delete">删除</span>-->
+    </li>
+
+{%for user in users%}
+    {%if user.isdelete == False%}
+<li class="userItem">
+    <span class="content">{{user.username}}</span>
+    <span class="content">{{user.phone}}</span>
+    <span class="content">{{user.email}}</span>
+    <span class="content">{{user.rdatetime}}</span>
+    <span class="control">
+    <span class="edit" onclick = "update(['{{user.id}}','{{user.username}}','{{user.phone}}','{{user.email}}','{{user.rdatetime}}'])" >修改</span>
+    <span class="delete" onclick = "del('{{user.id}}')">删除</span>
+    </span>
+</li>
+    {% endif %}
+{% endfor %}
+</ul>
+{%else%}
+<h3>No users!</h3>
+{% endif %}
+<form id='updateform' class="updateForm hide">
+    <input id='hide' class="hide" type="text" name="userself" value='22'>
+    <div class='formitem'><span class="title">Username</span><input class="content" type="text" name="username" value='22'></div>
+    <div class='formitem'><span class="title">Phone Number</span><input class="content" type="text" name="phone" value='22'></div>
+    <div class='formitem'><span class="title">Email Address</span><input class="content" type="text" name="email" value='22'></div>
+    <div class='formitem'><span class="title">Register Time</span><input class="content" type="text" name="starttime" value='22' disabled></div>
+    <div class='formitem'><input class='submit' type="submit"></div>
+</form>
+{% endblock %}
+
+{%block js%}
+<script src="static/js/manage.js"></script>
+{% endblock %}

@@ -1,0 +1,258 @@
+body{
+    background-color: rgb(101, 99, 99);
+}
+.hide{
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden;
+/* display: none !important; */
+}
+.card{
+    position: absolute;
+    width: 900px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display:flex;
+    
+}
+.card.form{
+    width: 550px;
+    height: 90%;
+}
+#map{
+    width:500px;
+    height:100%;
+    /* position: absolute; */
+    /* top: 200px; */
+}
+.intro{
+  flex:1;
+  padding-left: 40px;
+}
+.title{
+    margin: 0;
+    padding: 40px 0 0 0;
+}
+.add{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.button{
+    margin-top: 20px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    width: 120px;
+    height: 40px;
+    padding: 0;
+    line-height: 40px;
+    text-align: center;
+    color:rgb(81, 155, 142);
+    background-color: white;
+    border-radius: 5px;
+    display: inline-block;
+    border:2px solid rgb(81, 155, 142);
+
+}
+.button.contact{
+    background-color:rgb(81, 155, 142);
+    color:white;
+    margin-left: 20px;
+}
+#cardform{
+    display: flex;
+    flex-direction: column;
+}
+#cardform .reserveform{
+    width: 100%;
+    flex:1;
+    padding: 0 30px;
+    box-sizing: border-box;
+
+}
+#cardform .block{
+    width: 100%;
+    height: 30px;
+    color:white;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background-color: rgb(94, 167, 178);
+}
+.back{
+    width: 40px;
+    height: 100%;
+    line-height: 30px;
+    font-size:20px;
+}
+#cardform .reserveform p{
+    margin: 0;
+    padding: 0;
+
+}
+#cardform .reserveform .header{
+    font-size:18px;
+    margin-top: 10px;
+    color:rgb(57, 57, 57);
+}
+#cardform .reserveform .littletitle{
+    color:rgb(29, 173, 178);
+    /* color:#333; */
+    font-weight: 500;
+    font-size:16px;
+    padding: 10px 0 4px 0;
+}
+#cardform .reserveform .out{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border:1px solid rgb(57, 57, 57);
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+#cardform .reserveform .iconfont{
+    font-size:25.0px;
+    line-height: 40px;
+    height: 40px;
+    margin-left: 5px;
+    color:rgb(29, 173, 178);
+}
+#cardform .reserveform .out input{
+    height: 100%;
+    width: 80%;
+    line-height: 40px;
+    background:none;
+    outline:none;
+    border:none;
+    margin-left: 10px;
+}
+#cardform .reserveform .out input::placeholder{
+    font-size:15px;
+
+    color:rgb(154, 154, 154);
+}
+.birthday{
+    display: flex;
+    width: 100%;
+}
+.birthday .line{
+    flex:1;
+    /* width: 30px; */
+    overflow:hidden;
+    margin-right: 10px;
+    height: 35px;
+    /* display: inline-block; */
+    background-color: white;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border:1px solid rgb(57, 57, 57);
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+.birthday .line:last-of-type{
+    margin: 0;
+}
+.birthtitle{
+    font-size:16px;
+    width: 70px;
+    height: 40px;
+    line-height: 40px;
+    color:rgb(97, 96, 96);
+}
+.line input{
+    height: 100%;
+    /* width: 80%; */
+    line-height: 40px;
+    background:none;
+    outline:none;
+    border:none;
+    /* margin-left: 10px; */
+}
+.line input::placeholder{
+    font-size:15px;
+
+    color:rgb(154, 154, 154);
+}
+#datebox{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    /* justify-content: space-between; */
+
+}
+#datebox .day{
+    width: 80px;
+    height: 35spx;
+    line-height: 35px;
+    background-color: white;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    color:#333;
+    /* color:rgb(29, 173, 178); */
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.125);
+    border:1px solid rgb(57, 57, 57);
+   
+}
+#datebox .day.active{
+    color:white;
+    background-color:rgb(29, 173, 178);
+}
+#cardform .reserveform .two{
+    display: flex;
+    justify-content: space-between;
+}
+#cardform .reserveform .two span{
+    /* flex:1; */
+    width: 30%;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.125);
+    border:1px solid rgb(57, 57, 57);
+    text-align: center;
+    color:rgb(57, 57, 57);
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+}
+#cardform .reserveform .two span.active{
+    color:white;
+    background-color:rgb(29, 173, 178);
+}
+#cardform .reserveform .submit{
+    width: 100%;
+    margin: 0 auto;
+    height: 45px;
+    background-color: rgb(29, 173, 178);
+    color:white;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.disabled{
+    background-color: gray;
+    color:rgb(29, 29, 29);
+}
+#cardform .reserveform .submit input{
+    width: 90%;
+    height: 100%;
+    line-height: 45px;
+    border:none;
+    background:none;
+    color:white;
+    font-size:20px;
+
+}
+#timebox, #dateboxput, #vactype{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    left: -20px;
+    padding: 0;
+    margin: 0;
+    border:none;
+    outline:none;
+}

@@ -1,0 +1,91 @@
+{%extends 'base.html'%}
+{% block title %}
+Explore
+{% endblock %}
+{%block css%}
+<!--<link rel="stylesheet" href="static/css/manage.css">-->
+<link rel="stylesheet" type="text/css" href="static/css/hospital.css">
+{% endblock %}
+{% block content %}
+
+<div class='card' id='cardintro'>
+    
+
+<div id='map'></div>
+<div class='intro'>
+    <h2 class='title'>{{hospital.name}}</h2>
+    <p class='add'>{{hospital.address}}</p>
+    <p class='email'>Email: {{hospital.email}}</p>
+    <p class='phone'>Phone: {{hospital.phone}}</p>
+    <p class='type'>Type of vaccines:
+        <p>
+       {% for type in hospital.types%}
+       <span class='type'>{{type.name}}</span>
+       <span class='iconfont'>&#xe618;</span>
+       {% endfor %}
+    </p>
+    </p>
+
+    <p class='date'>Earliest:2020-20-02</p>
+    <div class='reserve button' id='reserve'>Reserve Now</div>
+    <div class='contact button'>Contact Us</div>
+    
+
+
+</div>
+</div>
+<div class='card form hide' id='cardform'>
+    <div class='block'><div id='back' class='back'>x</div></div>
+    <form class='reserveform'> 
+        <p class='header'>Reserve for COVID-19 Vaccination</p>
+        <p class='littletitle'>Personal Information</p>
+        <p class='out'><span class='iconfont'>&#xe63f;</span><input type='text' name='realname' placeholder="Your real name"></p>
+        <p class='out'><span class='iconfont'>&#xe6ec;</span> <input type='text' name='email' placeholder="Email Address"></p>
+        <p class='out'><span class='iconfont'>&#xe63d;</span><input type='text' name='phone' placeholder="Telephone Number"></p>
+        <div class='birthday'>
+            <span class='birthtitle'>Birthday</span>
+            <span class='line'><input name='year' type='text' placeholder="YYYY"></span>
+            <span class='line'><input name='month' type='text' placeholder="MM"></span>
+            <span class='line'><input name='day' type='text' placeholder="DD"></span>
+        </div>
+        <p class='littletitle'>Choose Vaccine Type</p>
+        <div class='type two' id='typebox'>
+            {% for tp in hospital.types%}
+            <span data-tp = {{tp.id}}>{{tp.name}}</span>
+            {% endfor %}
+        </div>
+        <input name='vactype' id='vactype'>
+
+        <p class='littletitle'>Choose available date</p>
+        <div class='datebox' id='datebox'>
+            {%for vac in hospital.vaccine_has%}
+            <div class='day' data-day={{vac.vtype}} data-time = {{vac.adatetime}}> {{vac.adatetime}}</div>
+            {%endfor%}
+        </div>
+        <input name='date' id='dateboxput'>
+        
+        <p class='littletitle' >Time Period</p>
+        <div class='detailtime two' id='tpbox'>
+            <span class='detialItem'>9am~11am</span>
+            <span class='detialItem'>1pm~3pm</span>
+            <span class='detialItem'>3pm~5pm</span>
+        </div>
+        <input name='detailtime' id='timebox'>
+
+        <div class='submit' id='submitdiv'><input type='submit'></div>
+    </form>
+    <!-- {%for vac in hospital.vaccine_has%}
+    <div>
+{{vac.adatetime}}
+{{vac.vactype.name}}
+    </div>
+    {%endfor%} -->
+
+</div>
+{% endblock %}
+
+{%block js%}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6R1wf4P5viLnCs8jNuxRIXPGr9OQfHAQ"
+    async defer></script>
+<script src="static/js/hospital.js"></script>
+{% endblock %}

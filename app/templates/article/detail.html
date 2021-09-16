@@ -1,0 +1,73 @@
+{% extends 'base.html'%}
+{% block title %}
+Detail
+{% endblock %}
+{%block css%}
+<link rel="stylesheet" href="static/swiper/dist/css/swiper.min.css">
+<link rel='stylesheet' href='static/css/detail.css'>
+{% endblock %}
+{% block content%}
+
+<div class='content'>
+    <div class='imgs'>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {% for image in imglist%}
+            <div class="swiper-slide"><img src={{image}}></div>
+    {% endfor %}
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+        
+        如果需要导航按钮
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        
+        <!-- 如果需要滚动条 -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+    </div>
+    <div class='info'>
+   <div class='authorinfo'>
+       <img class='uthoricon' src='{{article.user.icon}}'>
+    <p>{{article.user.username}}</p>
+</div>
+<div class='contentmain'>
+    <h3>{{article.title}}</h3>
+    <p>{{article.content}}</p>
+    <br/>
+    <p class='time'>Post on：{{article.pdatetime}}</p>
+</div>
+</div>
+</div>
+<div class='comments'>
+    <h3>{{article.comments|length}} Comments</h3>
+ 
+{%for comment in article.comments%}
+<div class='commentbox'>
+    
+    <img class='commenticon' src='{{comment.author.icon}}'>
+    <p class='commentuser'>{{comment.author}}</p>
+<p class='commentcontent'>{{comment.content}}</p>
+<p class='commenttime'>{{comment.cdatetime}}</p>
+
+<div class='reply'>Reply</div>
+</div>
+{% endfor %}
+<h3 class='write'>Write Comments</h3>
+<form class='commentform'action="{{url_for('article.addcomment')}}" method="POST">
+   <input class='hide' name="pid" value="{{article.id}}">
+    <textarea name = 'content' cols="50" rows="10" placeholder="input content">
+
+    </textarea>
+
+<input class='hide' name='author' value={{user.id}}>
+
+    <input class='btn' type="submit" value="submit">
+</form>
+</div>
+{% endblock %}
+{%block js%}
+<script src="static/swiper/dist/js/swiper.min.js"></script>
+<script src='static/js/detail.js'></script>
+{% endblock %}

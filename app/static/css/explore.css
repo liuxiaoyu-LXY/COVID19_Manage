@@ -1,0 +1,150 @@
+.outer{
+    width: 55vw;
+    margin: 20px 25vw 20px 20vw;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: rgba(235, 235, 235, 0.733);
+}
+.userinfo{
+    width: 100%;
+    height: 100px;
+    background-color: rgba(172, 172, 172, 0.68);
+    /* border-radius: 10px; */
+    overflow: hidden;
+}
+.icon{
+    float: left;
+    width: 70px;
+    height: 70px;
+    margin: auto 0;
+    border-radius: 10px;
+    margin: 15px;
+}
+.author{
+    float: left;
+    color:rgb(11, 141, 206);
+    font-weight:600;
+}
+.time{
+    float: right;
+    font-size:13px;
+    color:gray;
+    margin-right: 10px;
+}
+.wrapper{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.wrapper img{
+    width: 100%;
+    border-radius: 5px;
+    
+}
+.infobox{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 20px;
+    height: 100px;
+    position: relative;
+    background-color: rgba(172, 172, 172, 0.68);
+
+}
+.infobox span{
+    font-size:18px;
+    margin-right: 10px;
+}
+.infobox span.iconfont{
+    margin-right: 5px;
+}
+.infobox h3{
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+    
+}
+.collectin{
+    position: absolute;
+    right: 10px;
+    top:10px;
+    color:rgb(11, 141, 206);
+    border:1px solid rgb(11, 141, 206);
+    border-radius: 5px;
+    padding: 5px 10px;
+    
+}
+
+.type{
+    background-color: rgb(155, 155, 155);
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-size:10px !important;
+    margin-top: 10px;
+
+}
+
+.myinfo{
+    position: absolute;
+    left: 10vw;
+    top:72px;
+    width: 18.0vw;
+    border-radius: 5px;
+    background-color: rgba(235, 235, 235, 0.733);
+}
+.myicon{
+    width: 6vh;
+    margin-left: 5px;
+    margin-top: 10px;
+
+}
+.username{
+    position: absolute;
+    left: 8vh;
+    top: 2vh;
+    color:rgb(11, 141, 206);
+    font-weight: bold;
+}
+.myphoto .iconfont{
+ margin-right: 10px;
+ color:rgb(11, 141, 206);
+}
+.mycollect .iconfont{
+    margin-right: 10px;
+    color:rgb(11, 141, 206);
+   }
+   .mycollect,.myphoto{
+    color:rgb(11, 141, 206);
+   }
+.tags{
+    position: absolute;
+    left: 10vw;
+    top:202px;
+    width: 18vw;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: rgba(235, 235, 235, 0.733);
+}
+.tags .head{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    background-color: rgba(206, 206, 206, 0.61);
+
+}
+.tagItem{
+    width: 100%;
+    padding-left: 10px;
+    padding: 5px 10px;
+    color:rgb(11, 141, 206);
+}
+.num{
+    margin-left: 10px;
+    font-size:12px;
+}
+.outwrap{
+    width: 100%;
+    
+}

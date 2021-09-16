@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    Hospital Information:
+<form action='/addhospital' method="POST">
+<p>Name<input type='text' name='name'></p>
+<p>username<input type='text' name='username'></p>
+<p>email<input type='text' name='email'></p>
+<p>phone<input type='text' name='phone'></p>
+<p>Address<input type='text' name='address'></p>
+<input type='submit'>
+</form>
+
+Vaccine Information
+<form action='/addvactype' method='POST'>
+<input type='submit'>
+</form>
+
+Vaccine and Hospital
+<form action='/addvaccine' method='POST'>
+<p>Number<input type='text' name='number'></p>
+<p>Date<input type='date' name='adatetime'></p>
+Hospital
+<select name='hospital_id'>
+    {% for hospital in hospitals%}
+    <option value={{hospital.id}}>{{hospital.name}}</option>
+    {% endfor %}
+</select>
+Vaccine Type
+<select name='vtype'>
+    {% for v in vactypes%}
+    <option value={{v.id}}>{{v.name}}</option>
+    {% endfor %}
+</select>
+<input type='submit'>
+</form>
+</body>
+
+</html>
